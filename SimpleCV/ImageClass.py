@@ -580,6 +580,8 @@ class Image:
             cv.CvtColor(self.getBitmap(), retVal, cv.CV_HLS2RGB)    
         elif( self._colorSpace == ColorSpace.XYZ ):
             cv.CvtColor(self.getBitmap(), retVal, cv.CV_XYZ2RGB)
+        elif( self._colorSpace == ColorSpace.GRAY ):
+            return Image(self.getBitmap(), colorSpace=ColorSpace.RGB)
         elif( self._colorSpace == ColorSpace.RGB ):
             retVal = self.getBitmap()
         else:
